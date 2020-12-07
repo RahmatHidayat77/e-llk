@@ -4,7 +4,7 @@
 
 <div class="app-container app-theme-white">
     <div>
-        <div class="h-100 bg-plum-plate bg-animation">
+        <div class="h-100 bg-premium-dark bg-animation">
             <div class="d-flex h-100 justify-content-center align-items-center">
                 <div class="mx-auto app-login-box col-md-8">
                     <div class="app-logo-inverse mx-auto mb-3"></div>
@@ -20,7 +20,7 @@
                                     <!---->
                                     <div><input id="exampleInput1" type="email" placeholder="Enter email..."
                                             required="required" aria-required="true" class="form-control"
-                                            aria-describedby="exampleInputGroup1__BV_description_">
+                                            aria-describedby="exampleInputGroup1__BV_description_" autocomplete="off">
                                         <!---->
                                         <!----><small tabindex="-1" id="exampleInputGroup1__BV_description_"
                                             class="form-text text-muted">We'll never share your email with anyone
@@ -28,7 +28,7 @@
                                 </div>
                                 <div id="exampleInputGroup2" role="group" class="form-group">
                                     <!---->
-                                    <div><input id="exampleInput2" type="password" placeholder="Enter password..."
+                                    <div><input id="exampleInput2" type="password" placeholder="Enter password..." autocomplete="off"
                                             required="required" aria-required="true" class="form-control">
                                         <!---->
                                         <!---->

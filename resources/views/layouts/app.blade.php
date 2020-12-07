@@ -37,7 +37,7 @@
 </head>
 
 <body>
-    @if (url()->current() == env('APP_URL') . '/login'))
+    @if(Route::current()->getName() == 'login')
 
     @yield('content')
 
