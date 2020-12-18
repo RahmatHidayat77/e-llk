@@ -44,11 +44,26 @@
                 </li>
 
                 <li>
-                    <a href="#">
-                        <i class="metismenu-icon pe-7s-display2"></i>
-                        Menu 1
+                    <a href="/">
+                        <i class="metismenu-icon pe-7s-display1"></i>
+                        Beranda
                     </a>
                 </li>
+
+                <li>
+                    <a href="/ellk">
+                        <i class="metismenu-icon pe-7s-news-paper"></i>
+                        ELLK
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class="metismenu-icon pe-7s-info"></i>
+                        Panduan
+                    </a>
+                </li>
+
                 <li>
                     <a href="#">
                         <i class="metismenu-icon pe-7s-diamond"></i>

@@ -18,3 +18,4 @@ Route::get('/', function () {
 });
 
 Route::get('/login', 'Auth\LoginController@index')->name('login');
+Route::get('/ellk', 'ellkController@index')->name('ellk');
