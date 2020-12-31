@@ -37,14 +37,7 @@
                 <li class="app-sidebar__heading">Dashboards</li>
 
                 <li>
-                    <a href="/login">
-                        <i class="metismenu-icon pe-7s-display2"></i>
-                        Login
-                    </a>
-                </li>
-
-                <li>
-                    <a href="/">
+                    <a href="/home">
                         <i class="metismenu-icon pe-7s-display1"></i>
                         Beranda
                     </a>

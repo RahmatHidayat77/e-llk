@@ -10,52 +10,68 @@
                     <div class="app-logo-inverse mx-auto mb-3"></div>
                     <div class="modal-dialog w-100 mx-auto">
                         <div class="modal-content">
-                            <div class="modal-body">
-                                <div class="h5 modal-title text-center">
-                                    <h4 class="mt-2">
-                                        <div>Welcome back,</div><span>Please sign in to your account below.</span>
-                                    </h4>
-                                </div>
-                                <div id="exampleInputGroup1" role="group" class="form-group">
-                                    <!---->
-                                    <div><input id="exampleInput1" type="email" placeholder="Enter email..."
-                                            required="required" aria-required="true" class="form-control"
-                                            aria-describedby="exampleInputGroup1__BV_description_" autocomplete="off">
-                                        <!---->
-                                        <!----><small tabindex="-1" id="exampleInputGroup1__BV_description_"
-                                            class="form-text text-muted">We'll never share your email with anyone
-                                            else.</small></div>
-                                </div>
-                                <div id="exampleInputGroup2" role="group" class="form-group">
-                                    <!---->
-                                    <div><input id="exampleInput2" type="password" placeholder="Enter password..." autocomplete="off"
-                                            required="required" aria-required="true" class="form-control">
-                                        <!---->
-                                        <!---->
-                                        <!---->
+                            <form method="POST" action="{{ route('login') }}">
+                                @csrf
+                                <div class="modal-body">
+                                    <div class="h5 modal-title text-center">
+                                        <h4 class="mt-2">
+                                            <div>Welcome back,</div><span>Please sign in to your account below.</span>
+                                        </h4>
                                     </div>
+
+                                    <div id="exampleInputGroup1" role="group" class="form-group">
+                                        <!---->
+                                        <div>
+
+                                            <input id="email" type="email"
+                                                class="form-control @error('email') is-invalid @enderror" name="email"
+                                                value="{{ old('email') }}" required
+                                                autocomplete="email" autofocus>
+
+                                            @error('email')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+
+                                        </div>
+                                    </div>
+                                    <div id="exampleInputGroup2" role="group" class="form-group">
+                                        <!---->
+                                        <div>
+                                            <input id="password" type="password"
+                                                class="form-control @error('password') is-invalid @enderror"
+                                                name="password" required autocomplete="current-password">
+                                            @error('password')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="custom-control custom-checkbox">
+
+                                        <input id="exampleCheck" type="checkbox" name="remember" autocomplete="off"
+                                            class="custom-control-input"
+                                            {{ old('remember') ? 'checked' : '' }}>
+                                        <label for="exampleCheck" class="custom-control-label">
+                                            Keep me logged in
+                                        </label></div>
+                                    <div class="divider"></div>
+                                    <h6 class="mb-0">
+                                        No account?
+                                        <a href="{{ route('register') }}" class="text-primary">Sign up now</a></h6>
                                 </div>
-                                <div class="custom-control custom-checkbox"><input id="exampleCheck" type="checkbox"
-                                        name="check" autocomplete="off" class="custom-control-input" value="true"><label
-                                        for="exampleCheck" class="custom-control-label">
-                                        Keep me logged in
-                                    </label></div>
-                                <div class="divider"></div>
-                                <h6 class="mb-0">
-                                    No account?
-                                    <a href="javascript:void(0);" class="text-primary">Sign up now</a></h6>
-                            </div>
-                            <div class="modal-footer clearfix">
-                                <div class="float-left"><a href="javascript:void(0);"
-                                        class="btn-lg btn btn-link">Recover
-                                        Password</a></div>
-                                <div class="float-right"><button type="button" class="btn btn-primary btn-lg">Login to
-                                        Dashboard</button></div>
-                            </div>
+                                <div class="modal-footer clearfix">
+                                    <div  class="float-right"><button type="submit"  type="button" class="btn btn-primary btn-lg">Login
+                                            to
+                                            Dashboard</button></div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                     <div class="text-center text-white opacity-8 mt-3">
-                        Copyright © ArchitectUI 2019
+                        Copyright © Me
                     </div>
                 </div>
             </div>

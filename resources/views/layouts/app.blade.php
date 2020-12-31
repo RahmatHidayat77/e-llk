@@ -37,44 +37,44 @@
 </head>
 
 <body>
-    @if(Route::current()->getName() == 'login')
+    @guest
 
-    @yield('content')
+        @yield('content')
 
     @else
-    <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
+        <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
 
-        @include('layouts.header')
+            @include('layouts.header')
 
-        <!-- @include('layouts.setting') -->
+            <!-- @include('layouts.setting') -->
 
-   
 
-        <!-- begin: content -->
-        <div class="app-main">
-        
 
-            @include('layouts.aside')
+            <!-- begin: content -->
+            <div class="app-main">
 
-            <div class="app-main__outer">
-                <div class="app-main__inner">
 
-                    @yield('sub_header')
+                @include('layouts.aside')
 
-                    @yield('content')
+                <div class="app-main__outer">
+                    <div class="app-main__inner">
+
+                        @yield('sub_header')
+
+                        @yield('content')
+
+                    </div>
+
+                    @include('layouts.footer')
 
                 </div>
-
-                @include('layouts.footer')
-
+                <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
             </div>
-            <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
-        </div>
-        <!-- end:content  -->
+            <!-- end:content  -->
 
-       
-    </div>
-    @endif
+
+        </div>
+    @endguest
 
     <script type="text/javascript" src="/assets/scripts/main.js"></script>
 </body>
