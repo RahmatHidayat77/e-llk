@@ -19,6 +19,8 @@ Route::get('/', function () {
 
 Route::get('/login', 'Auth\LoginController@index')->name('login');
 Route::get('/ellk', 'ellkController@index')->name('ellk');
+
+Route::get('/users', 'UserController@index')->name('ellk');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

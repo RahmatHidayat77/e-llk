@@ -26,6 +26,17 @@
     <link href="./main.css" rel="stylesheet">
     <!--end:: Global Optional Vendors -->
 
+    <style type="text/css">
+        .card-body {
+            background-color: #FFF;
+        }
+
+        .b-0 {
+            border: 0 !important;
+        }
+
+    </style>
+
     <!--begin::Page Custom Styles(used by this page) -->
     @yield('page_styles')
     <!--end::Page Custom Styles -->
@@ -75,6 +86,10 @@
 
         </div>
     @endguest
+
+
+
+    @yield('modal')
 
     <script type="text/javascript" src="/assets/scripts/main.js"></script>
 </body>

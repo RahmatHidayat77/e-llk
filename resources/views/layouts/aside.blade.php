@@ -44,6 +44,13 @@
                 </li>
 
                 <li>
+                    <a href="/users">
+                        <i class="metismenu-icon pe-7s-add-user"></i>
+                        Users
+                    </a>
+                </li>
+
+                <li>
                     <a href="/ellk">
                         <i class="metismenu-icon pe-7s-news-paper"></i>
                         ELLK
@@ -57,7 +64,7 @@
                     </a>
                 </li>
 
-                <li>
+                <!-- <li>
                     <a href="#">
                         <i class="metismenu-icon pe-7s-diamond"></i>
                         Menu 2
@@ -78,7 +85,7 @@
                         </li>
 
                     </ul>
-                </li>
+                </li> -->
             </ul>
         </div>
     </div>
