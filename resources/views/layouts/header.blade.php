@@ -81,7 +81,7 @@
                             {{ Auth::user()->name }}
                             </div>
                             <div class="widget-subheading">
-                                -
+                            {{ Auth::user()->jabatan }}
                             </div>
                         </div>
                     </div>
