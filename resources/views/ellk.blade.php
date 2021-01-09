@@ -15,61 +15,61 @@
                 </div>
             </div>
         </div>
-        <!-- <div class="page-title-actions">
-            <button type="button" data-toggle="tooltip" title="Example Tooltip" data-placement="bottom"
-                class="btn-shadow mr-3 btn btn-dark">
-                <i class="fa fa-star"></i>
-            </button>
+        <div class="page-title-actions">
             <div class="d-inline-block dropdown">
-                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                    class="btn-shadow dropdown-toggle btn btn-info">
+                <button type="button" class="btn-shadow btn btn-info" data-toggle="modal" data-target="#modalAdd">
                     <span class="btn-icon-wrapper pr-2 opacity-7">
-                        <i class="fa fa-business-time fa-w-20"></i>
+                        <i class="fa fa-plus fa-w-20"></i>
                     </span>
-                    Buttons
+                    Add Data
                 </button>
-                <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a href="javascript:void(0);" class="nav-link">
-                                <i class="nav-link-icon lnr-inbox"></i>
-                                <span>
-                                    Inbox
-                                </span>
-                                <div class="ml-auto badge badge-pill badge-secondary">86</div>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="javascript:void(0);" class="nav-link">
-                                <i class="nav-link-icon lnr-book"></i>
-                                <span>
-                                    Book
-                                </span>
-                                <div class="ml-auto badge badge-pill badge-danger">5</div>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="javascript:void(0);" class="nav-link">
-                                <i class="nav-link-icon lnr-picture"></i>
-                                <span>
-                                    Picture
-                                </span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a disabled href="javascript:void(0);" class="nav-link disabled">
-                                <i class="nav-link-icon lnr-file-empty"></i>
-                                <span>
-                                    File Disabled
-                                </span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
             </div>
-        </div> -->
+        </div>
     </div>
 </div>
+@endsection
+
+@section('modal')
+<!-- Add modal -->
+<div class="modal fade" id="modalAdd" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Add Users</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="">
+                    <div class="position-relative form-group"><label class="">Nama</label><input placeholder="Fullname"
+                            type="text" class="form-control" disabled></div>
+                    <div class="position-relative form-group" ><label class="">NIP</label><input placeholder="1111XXXX"
+                            type="text" class="form-control" disabled></div>
+                    <div class="position-relative form-group"><label class="">Email</label>
+                        <input placeholder="email@mail.com" type="email" class="form-control" disabled>
+                    </div>
+                    <div class="position-relative form-group"><label class="">Password</label><input type="password"
+                            class="form-control"></div>
+                    <div class="position-relative form-group"><label>Select</label><select class="form-control">
+                            <option>Users</option>
+                            <option>Super Admin</option>
+                        </select></div>
+                    <div class="position-relative form-group"><label for="exampleFile" class="">File</label><input
+                            name="file" id="exampleFile" type="file" class="form-control-file">
+                        <small class="form-text text-muted">Ukuran file maksimal 2mb</small>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 @endsection
 
 @section('content')
