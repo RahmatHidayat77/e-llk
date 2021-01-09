@@ -18,8 +18,11 @@ class ellkController extends Controller
 
     public function index()
     {
-        $llks = LembarKerja::all();
-        return view('ellk');
+        $lks = DB::table('lembar_kerjas')
+        ->orderBy('created_at','desc')
+        ->get();
+        
+        return view('ellk', compact("lks"));  
     }
 
     public function create(Request $request)
