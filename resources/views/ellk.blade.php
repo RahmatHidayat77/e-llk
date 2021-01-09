@@ -41,8 +41,9 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+            <form  method="POST" action="{{ route('ellk.create') }}">
+            @csrf
             <div class="modal-body">
-                <form class="">
                     <div class="position-relative form-group"><label class="">Nama</label>
                         <input placeholder="{{ Auth::user()->name }}" type="text" class="form-control" disabled></div>
                     <div class="position-relative form-group" ><label class="">NIP</label>
@@ -52,35 +53,35 @@
                         <input placeholder="{{ Auth::user()->jabatan }}" type="text" class="form-control" disabled>
                     </div>
                     <div class="position-relative form-group"><label class="">Tanggal Kegiatan</label>
-                        <input value="{{ date('d-m-Y') }}" type="date"  class="form-control"> 
+                        <input value="{{ date('d-m-Y') }}" type="date" name="tanggal"  class="form-control"> 
                     </div>
                     <div class="position-relative"><label>Jam</label></div>
                     <div class="form-group row">
-                        <div class="col"> <input class="form-control" type="time" data-inputmask="'alias': 'time'"> </div>
+                        <div class="col"> <input class="form-control" type="time" data-inputmask="'alias': 'time'" name="from"> </div>
                         <small class="m-t-3">s/d</small>
-                        <div class="col"> <input class="form-control" type="time" data-inputmask="'alias': 'time'"> </div>
+                        <div class="col"> <input class="form-control" type="time" data-inputmask="'alias': 'time'" name="to"> </div>
                     </div>
                     {{-- <div class="position-relative"> --}}
                         {{-- <small class="form-text text-muted">(contoh penulisan 08:00 - 12:00)</small> --}}
                     {{-- </div> --}}
                     <div class="position-relative form-group"><label class="text-area">Kegiatan</label>
-                        <textarea rows="3" class="form-control"></textarea>
+                        <textarea rows="3" class="form-control" name="kegiatan"></textarea>
                     </div>
                     <div class="position-relative form-group"><label class="">Jenis Kegiatan</label>
-                            <select name="jabatan" class="form-control @error('Jenis Kegiatan') is-invalid @enderror col-4">
+                            <select name="jenis" class="form-control @error('Jenis Kegiatan') is-invalid @enderror col-4">
                                 <option value="utama">Utama</option>
                                 <option value="pendukung">Pendukung</option>
                             </select>                    
                     </div>
                     <div class="position-relative form-group"><label class="">Keterangan</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="catatan">
                     </div>
-                </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
             </div>
+        </form>
         </div>
     </div>
 </div>
@@ -224,3 +225,11 @@
 
 </style>
 @endsection
+
+<script>
+    var msg = '{{Session::get('success')}}';
+    var exist = '{{Session::has('success')}}';
+    if(exist){
+      alert(msg);
+    }
+  </script>

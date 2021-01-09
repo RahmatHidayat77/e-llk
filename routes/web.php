@@ -19,8 +19,10 @@ Route::get('/', function () {
 
 Route::get('/login', 'Auth\LoginController@index')->name('login');
 Route::get('/ellk', 'ellkController@index')->name('ellk');
+Route::post('/ellk/create', 'ellkController@create')->name('ellk.create');
 
-Route::get('/users', 'UserController@index')->name('ellk');
+
+Route::get('/users', 'UserController@index')->name('users');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
