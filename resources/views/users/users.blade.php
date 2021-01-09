@@ -1,5 +1,22 @@
 @extends('layouts.app')
 
+@section('page_styles')
+<style  type="text/css">
+
+.b-t-0{
+    border-bottom: 0 !important; 
+}
+.img-usr{
+    width:20px;
+    height: 20px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+}
+
+</style>
+@endsection
+
 @section('sub_header')
 
 <div class="app-page-title">
@@ -33,50 +50,50 @@
 
 @section('content')
 <div class="card-body">
-    <table class="table">
+    <table id="data_users_reguler" class="table" style="width:100%">
         <thead>
             <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nama</th>
-                <th scope="col">NIP</th>
-                <th scope="col">Content 1</th>
-                <th scope="col">Content 2</th>
-                <th scope="col">Content 3</th>
-                <th scope="col">Aksi</th>
+                <th class="b-t-0">#</th>
+                <th class="b-t-0">NIP</th>
+                <th class="b-t-0">Name</th>
+                <th class="b-t-0">Email</th>
+                <th class="b-t-0">Jabatan</th>
+                <th class="b-t-0">Foto</th>
+                <th class="b-t-0">Aksi</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>@content</td>
+            @foreach($users as $item)
+                <tr>
+                    <td>{{$loop->iteration}}</td>
+                    <td>{{ $item->nip }}</td>
+                    <td>{{ $item->name }}</td>
+                    <td>{{ $item->email }}</td>
+                    <td>{{ $item->jabatan}}</td>
+                    <td><img src="{{ $item->foto }}" class="img-usr" alt="Cinque Terre"></td>
+                    <td>
+                        <div role="group" class="btn-group-sm btn-group btn-group-toggle" data-toggle="buttons">
+                            <label class="btn btn-primary" data-toggle="modal" data-target="#modalSee">
+                                <span class="btn-icon-wrapper pr-2 opacity-7">
+                                    <i class="fa fa-eye fa-w-20"></i>
+                                </span>
+                            </label>
+                            <label class="btn btn-warning">
+                                <span class="btn-icon-wrapper pr-2 opacity-7">
+                                    <i class="fa fa-edit fa-w-20"></i>
+                                </span>
+                            </label>
+                            <label class="btn btn-danger">
+                                <span class="btn-icon-wrapper pr-2 opacity-7">
+                                    <i class="fa fa-trash fa-w-20"></i>
+                                </span>
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+            @endforeach
 
-                <td>@content</td>
-                <td>
-                    <div role="group" class="btn-group-sm btn-group btn-group-toggle" data-toggle="buttons">
-                        <label class="btn btn-primary" data-toggle="modal" data-target="#modalSee">
-                            <span class="btn-icon-wrapper pr-2 opacity-7">
-                                <i class="fa fa-eye fa-w-20"></i>
-                            </span>
-                        </label>
-                        <label class="btn btn-warning">
-                            <span class="btn-icon-wrapper pr-2 opacity-7">
-                                <i class="fa fa-edit fa-w-20"></i>
-                            </span>
-                        </label>
-                        <label class="btn btn-danger">
-                            <span class="btn-icon-wrapper pr-2 opacity-7">
-                                <i class="fa fa-trash fa-w-20"></i>
-                            </span>
-                        </label>
-                    </div>
-                </td>
-            </tr>
-        </tbody>
     </table>
-
 </div>
 @endsection
 
@@ -92,31 +109,37 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <form class="">
+            <form method="post" action="" class="kt-form" enctype="multipart/form-data" id="m_form_create">
+                @csrf
+                <div class="modal-body">
+
                     <div class="position-relative form-group"><label class="">Nama</label><input placeholder="Fullname"
-                            type="text" class="form-control"></div>
+                            type="text" class="form-control" name="fullname"></div>
                     <div class="position-relative form-group"><label class="">NIP</label><input placeholder="1111XXXX"
-                            type="text" class="form-control"></div>
+                            type="text" class="form-control" name="nip"></div>
                     <div class="position-relative form-group"><label class="">Email</label>
-                        <input placeholder="email@mail.com" type="email" class="form-control">
+                        <input placeholder="email@mail.com" type="email" class="form-control" name="email">
                     </div>
-                    <div class="position-relative form-group"><label class="">Password</label><input type="password"
-                            class="form-control"></div>
-                    <div class="position-relative form-group"><label>Select</label><select class="form-control">
-                            <option>Users</option>
-                            <option>Super Admin</option>
+                    <div class="position-relative form-group"><label class="">Password</label><input type="text"
+                            class="form-control" name="password"></div>
+                    <div class="position-relative form-group"><label>Jabatan</label><select class="form-control"
+                            name="jabatan">
+                            <option>Pilih Jabatan</option>
+                            <option value="pegawai">Pegawai</option>
+                            <option value="kasubag">KaSubBag</option>
+                            <option value="sekretaris">Sekretaris</option>
                         </select></div>
                     <div class="position-relative form-group"><label for="exampleFile" class="">File</label><input
                             name="file" id="exampleFile" type="file" class="form-control-file">
                         <small class="form-text text-muted">Ukuran file maksimal 2mb</small>
                     </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" id="m_submit">Save changes</button>
+                </div>
+
+            </form>
         </div>
     </div>
 </div>
@@ -160,4 +183,8 @@
     }
 
 </style>
+@endsection
+
+@section('page_scripts')
+<script src="js/users.js" type="text/javascript"></script>
 @endsection
