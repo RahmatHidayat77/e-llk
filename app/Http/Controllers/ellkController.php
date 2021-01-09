@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\LembarKerja;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 use Symfony\Component\Console\Input\Input;
@@ -21,8 +22,8 @@ class ellkController extends Controller
         $lks = DB::table('lembar_kerjas')
         ->orderBy('created_at','desc')
         ->get();
-        
-        return view('ellk', compact("lks"));  
+
+        return view('ellk', compact("lks"));
     }
 
     public function create(Request $request)
