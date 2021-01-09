@@ -43,12 +43,14 @@
                     </a>
                 </li>
 
+                @if (Auth::user()->jabatan == 'sekretaris')
                 <li>
                     <a href="/users">
                         <i class="metismenu-icon pe-7s-add-user"></i>
                         Users
                     </a>
                 </li>
+                @endif
 
                 <li>
                     <a href="/ellk">

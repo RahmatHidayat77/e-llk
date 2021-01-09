@@ -33,22 +33,10 @@
     <div class="app-header__content">
         <div class="app-header-left">
             <ul class="header-menu nav">
-                <li class="nav-item">
-                    <a href="javascript:void(0);" class="nav-link">
-                        <i class="nav-link-icon fa fa-database"> </i>
-                        Statistics
-                    </a>
-                </li>
-                <li class="btn-group nav-item">
-                    <a href="javascript:void(0);" class="nav-link">
-                        <i class="nav-link-icon fa fa-edit"></i>
-                        Projects
-                    </a>
-                </li>
                 <li class="dropdown nav-item">
                     <a href="javascript:void(0);" class="nav-link">
                         <i class="nav-link-icon fa fa-cog"></i>
-                        Settings
+                        Selamat datang, anda login sebagai <div class="badge badge-pill badge-primary">{{ Auth::user()->jabatan }} </div>
                     </a>
                 </li>
             </ul>
@@ -60,7 +48,7 @@
                         <div class="widget-content-left">
                             <div class="btn-group">
                                 <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
-                                    <img width="42" class="rounded-circle" src="assets/images/avatars/1.jpg" alt="">
+                                    <img height="50" width="50" class="rounded-circle" src="{{ Auth::user()->foto }}" alt="">
                                     <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                 </a>
                                 <div tabindex="-1" role="menu" aria-hidden="true"

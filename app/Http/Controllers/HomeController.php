@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use DB;
+
 class HomeController extends Controller
 {
     /**
@@ -23,6 +25,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $totalPegawai = DB::table('users')
+            ->where('jabatan', '=', 'pegawai')
+            ->count();
+        $totalKasubag = DB::table('users')
+            ->where('jabatan', '=', 'kasubag')
+            ->count();
+        $totalSekre = DB::table('users')
+            ->where('jabatan', '=', 'sekretaris')
+            ->count();
+
+        return view('home', compact(["totalPegawai","totalKasubag","totalSekre"]));
     }
 }
