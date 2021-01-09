@@ -10,4 +10,9 @@ class ellkController extends Controller
     {
         return view('ellk');
     }
+
+    public function create()
+    {
+        
+    }
 }

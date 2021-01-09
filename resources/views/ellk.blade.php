@@ -36,29 +36,44 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Add Users</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">Tambah Lembar Kerja</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
                 <form class="">
-                    <div class="position-relative form-group"><label class="">Nama</label><input placeholder="Fullname"
-                            type="text" class="form-control" disabled></div>
-                    <div class="position-relative form-group" ><label class="">NIP</label><input placeholder="1111XXXX"
-                            type="text" class="form-control" disabled></div>
-                    <div class="position-relative form-group"><label class="">Email</label>
-                        <input placeholder="email@mail.com" type="email" class="form-control" disabled>
+                    <div class="position-relative form-group"><label class="">Nama</label>
+                        <input placeholder="{{ Auth::user()->name }}" type="text" class="form-control" disabled></div>
+                    <div class="position-relative form-group" ><label class="">NIP</label>
+                        <input placeholder="{{ Auth::user()->nip }}" type="text" class="form-control" disabled>
                     </div>
-                    <div class="position-relative form-group"><label class="">Password</label><input type="password"
-                            class="form-control"></div>
-                    <div class="position-relative form-group"><label>Select</label><select class="form-control">
-                            <option>Users</option>
-                            <option>Super Admin</option>
-                        </select></div>
-                    <div class="position-relative form-group"><label for="exampleFile" class="">File</label><input
-                            name="file" id="exampleFile" type="file" class="form-control-file">
-                        <small class="form-text text-muted">Ukuran file maksimal 2mb</small>
+                    <div class="position-relative form-group"><label class="">Jabatan</label>
+                        <input placeholder="{{ Auth::user()->jabatan }}" type="text" class="form-control" disabled>
+                    </div>
+                    <div class="position-relative form-group"><label class="">Tanggal Kegiatan</label>
+                        <input value="{{ date('d-m-Y') }}" type="date"  class="form-control"> 
+                    </div>
+                    <div class="position-relative"><label>Jam</label></div>
+                    <div class="form-group row">
+                        <div class="col"> <input class="form-control" type="time" data-inputmask="'alias': 'time'"> </div>
+                        <small class="m-t-3">s/d</small>
+                        <div class="col"> <input class="form-control" type="time" data-inputmask="'alias': 'time'"> </div>
+                    </div>
+                    {{-- <div class="position-relative"> --}}
+                        {{-- <small class="form-text text-muted">(contoh penulisan 08:00 - 12:00)</small> --}}
+                    {{-- </div> --}}
+                    <div class="position-relative form-group"><label class="text-area">Kegiatan</label>
+                        <textarea rows="3" class="form-control"></textarea>
+                    </div>
+                    <div class="position-relative form-group"><label class="">Jenis Kegiatan</label>
+                            <select name="jabatan" class="form-control @error('Jenis Kegiatan') is-invalid @enderror col-4">
+                                <option value="utama">Utama</option>
+                                <option value="pendukung">Pendukung</option>
+                            </select>                    
+                    </div>
+                    <div class="position-relative form-group"><label class="">Keterangan</label>
+                        <input type="text" class="form-control">
                     </div>
                 </form>
             </div>
