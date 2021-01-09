@@ -29,4 +29,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 //users data
 Route::prefix('users')->group(function(){
     Route::post('/add', 'UserController@store')->middleware('auth')->name('users.add');
+    Route::get('/delete/{id}', 'UserController@destroy')->middleware('auth');
+    Route::get('/detail/{id}','UserController@detail')->middleware('auth');
+    Route::post('/update/{id}', 'UserController@update')->middleware('auth');
 });

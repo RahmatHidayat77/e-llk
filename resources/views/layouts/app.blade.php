@@ -27,7 +27,7 @@
     <!--begin:: Global Optional Vendors -->
     <link href="./main.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.css" />
     <!--end:: Global Optional Vendors -->
 
     <style type="text/css">
@@ -94,21 +94,19 @@
 
 
     @yield('modal')
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js" integrity="sha512-UdIMMlVx0HEynClOIFSyOrPggomfhBKJE28LKl8yR3ghkgugPnG6iLfRfHwushZl1MOPSY6TsuBDGPK2X4zYKg==" crossorigin="anonymous"></script>
-    <script src="http://malsup.github.com/jquery.form.js"></script> 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"
+        integrity="sha512-UdIMMlVx0HEynClOIFSyOrPggomfhBKJE28LKl8yR3ghkgugPnG6iLfRfHwushZl1MOPSY6TsuBDGPK2X4zYKg=="
+        crossorigin="anonymous"></script>
+    <script src="http://malsup.github.com/jquery.form.js"></script>
     <script type="text/javascript" src="/assets/scripts/main.js"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="{{ asset('assets/scripts/vendor/sweetalert2@8.js') }}"></script>
+    <script type="text/javascript"
+        src="{{ asset('assets/scripts/vendor/sweetalert2@8.js') }}"></script>
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            console.log('ready')
-        });
-
-    </script>
-
-@yield('page_scripts')
+    @yield('page_scripts')
 </body>
 
 </html>

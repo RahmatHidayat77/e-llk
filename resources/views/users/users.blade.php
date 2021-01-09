@@ -1,18 +1,26 @@
 @extends('layouts.app')
 
 @section('page_styles')
-<style  type="text/css">
+<style type="text/css">
+    .b-t-0 {
+        border-bottom: 0 !important;
+    }
 
-.b-t-0{
-    border-bottom: 0 !important; 
-}
-.img-usr{
-    width:20px;
-    height: 20px;
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: center;
-}
+    .img-usr {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .profil>img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: center;
+    }
 
 </style>
 @endsection
@@ -65,25 +73,27 @@
         <tbody>
             @foreach($users as $item)
                 <tr>
-                    <td>{{$loop->iteration}}</td>
+                    <td>{{ $loop->iteration }}</td>
                     <td>{{ $item->nip }}</td>
                     <td>{{ $item->name }}</td>
                     <td>{{ $item->email }}</td>
-                    <td>{{ $item->jabatan}}</td>
+                    <td>{{ $item->jabatan }}</td>
                     <td><img src="{{ $item->foto }}" class="img-usr" alt="Cinque Terre"></td>
                     <td>
                         <div role="group" class="btn-group-sm btn-group btn-group-toggle" data-toggle="buttons">
-                            <label class="btn btn-primary" data-toggle="modal" data-target="#modalSee">
+                            <label class="btn btn-primary" data-id="{{ $item->id }}" id="m_detail" data-toggle="modal"
+                                data-target="#modalSee">
                                 <span class="btn-icon-wrapper pr-2 opacity-7">
                                     <i class="fa fa-eye fa-w-20"></i>
                                 </span>
                             </label>
-                            <label class="btn btn-warning">
+                            <label class="btn btn-warning" data-id="{{ $item->id }}" id="m_update" data-toggle="modal"
+                                data-target="#modalSee">
                                 <span class="btn-icon-wrapper pr-2 opacity-7">
                                     <i class="fa fa-edit fa-w-20"></i>
                                 </span>
                             </label>
-                            <label class="btn btn-danger">
+                            <label class="btn btn-danger" data-id="{{ $item->id }}" id="m_deleted">
                                 <span class="btn-icon-wrapper pr-2 opacity-7">
                                     <i class="fa fa-trash fa-w-20"></i>
                                 </span>
@@ -136,7 +146,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary" id="m_submit">Save changes</button>
+                    <button type="submit" class="btn btn-primary" id="m_submit">Save Data</button>
                 </div>
 
             </form>
@@ -145,8 +155,7 @@
 </div>
 
 <!-- See modal -->
-<div class="modal fade" id="modalSee" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-    aria-hidden="true">
+<div class="modal fade" id="modalSee" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -155,18 +164,53 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <div class="position-relative form-group"><label class="">Nama</label><input placeholder="Fullname"
-                        type="text" class="form-control" disabled></div>
-                <div class="position-relative form-group"><label class="">NIP</label><input placeholder="1111XXXX"
-                        type="text" class="form-control" disabled></div>
-                <div class="position-relative form-group"><label class="">Email</label>
-                    <input placeholder="email@mail.com" type="email" class="form-control" disabled>
+
+            <form method="post" action="" class="kt-form" enctype="multipart/form-data" id="m_form_update">
+                @csrf
+                <div class="modal-body">
+
+                    <input class="d-none" type="text" name="id" id="idData">
+
+                    <div class="profil text-center">
+                        
+                    </div>
+
+                    <div class="form-group ">
+                        <label>Image</label>
+                        <div class="profil text-center">
+                            <img id="photoUser" src="" alt="" sizes="" srcset="">
+                            <div style="height : 10px;"></div>
+                            <div class="custom-file text-left" id="input_file">
+                                <input type="file" class="custom-file-input"  name="file" id="btnfile"
+                                    onchange="readURL(this);" accept="image/*"
+                                    aria-describedby="inputGroupFileAddon01">
+                                <label class="custom-file-label" for="inputGroupFile01">Choose Image</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="position-relative form-group"><label class="">Nama</label><input placeholder="Fullname"
+                            type="text" class="form-control" id="fullname" name="fullname"></div>
+                    <div class="position-relative form-group"><label class="">NIP</label><input placeholder="1111XXXX"
+                            type="text" class="form-control" id="nip" name="nip"></div>
+                    <div class="position-relative form-group"><label class="" disabled>Email</label>
+                        <input placeholder="email@mail.com" type="email" class="form-control" id="email" name="email">
+                    </div>
+                    <div class="position-relative form-group" id="password_group"><label class="">Password</label><input
+                            type="text" class="form-control" name="password"></div>
+                    <div class="position-relative form-group"><label>Jabatan</label><select class="form-control"
+                            id="jabatan" name="jabatan">
+                            <option>Pilih Jabatan</option>
+                            <option value="pegawai">Pegawai</option>
+                            <option value="kasubag">KaSubBag</option>
+                            <option value="sekretaris">Sekretaris</option>
+                        </select></div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" id="m_submit_update">Save changes</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
