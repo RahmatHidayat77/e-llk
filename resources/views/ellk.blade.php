@@ -55,6 +55,9 @@
                     <div class="position-relative form-group"><label class="">Jabatan</label>
                         <input placeholder="{{ Auth::user()->jabatan }}" type="text" class="form-control" disabled>
                     </div>
+                    <div class="position-relative form-group"><label class="">Tanggal</label>
+                        <input placeholder="{{ date('d-m-Y') }}" type="text" class="form-control" disabled>
+                    </div>
                     <div class="position-relative"><label>Jam</label></div>
                     <div class="form-group row">
                         <div class="col"> <input class="form-control" type="time" data-inputmask="'alias': 'time'"

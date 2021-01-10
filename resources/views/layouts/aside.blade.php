@@ -1,6 +1,7 @@
 <div class="app-sidebar sidebar-shadow">
     <div class="app-header__logo">
-        <div class="logo-src"></div>
+        {{-- <div class="logo-src"></div> --}}
+        <img src="{{ URL::to('assets/images/icon.jpeg')}} " alt="">
         <div class="header__pane ml-auto">
             <div>
                 <button type="button" class="hamburger close-sidebar-btn hamburger--elastic"

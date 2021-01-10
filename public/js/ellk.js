@@ -111,7 +111,12 @@ $(function () {
     });
 
     // init datatable 
-    $('#data_activity').DataTable();
+    $("#data_activity").DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'excel', 'pdf', 'print'
+        ]
+    });
 
     //delete data
     $('body').on('click', '#m_deleted', function () {
