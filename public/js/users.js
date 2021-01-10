@@ -59,7 +59,7 @@ $(function () {
   });
 
   // table.columns([1, 2]).select();
-  table.columns('.aksi').deselect();
+  // table.columns('.aksi').deselect();
 
   //delete data
   $('body').on('click', '#m_deleted', function () {
