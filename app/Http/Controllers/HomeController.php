@@ -25,6 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $sidebar = 'home';
+
         $totalPegawai = DB::table('users')
             ->where('jabatan', '=', 'pegawai')
             ->count();
@@ -66,6 +68,7 @@ class HomeController extends Controller
             $getPercentProgress = ($lksCountVerified / $lksCount) * 100;
 
         return view('home',
-        compact(["totalPegawai","totalKasubag","totalSekre","lks","lksCount","lksCountUnverified", "lksCountVerified","getPercentProgress"]));
+        compact(["totalPegawai","totalKasubag","totalSekre","lks", "sidebar", 
+        "lksCount","lksCountUnverified", "lksCountVerified","getPercentProgress"]));
     }
 }

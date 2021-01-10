@@ -22,13 +22,14 @@ class UserController extends Controller
 
     public function getAllUser()
     {
+        $sidebar = "users";
         $id = Auth::user()->id;
         $users = DB::table('users')
             ->orderBy('created_at','desc')
             ->where('id', '!=', $id)
             ->get();
             
-        return view('users.users', compact("users"));
+        return view('users.users', compact(["users","sidebar"]));
     }
 
     public function store(Request $request)

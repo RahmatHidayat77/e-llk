@@ -38,7 +38,7 @@
                 <li class="app-sidebar__heading">Dashboards</li>
 
                 <li>
-                    <a href="/home">
+                    <a href="/home" class="{{ isset($sidebar) && $sidebar == 'home' ? 'mm-active' : '' }}">
                         <i class="metismenu-icon pe-7s-display1"></i>
                         Beranda
                     </a>
@@ -46,13 +46,13 @@
 
                 @if (Auth::user()->jabatan == 'kasubag')
                 <li>
-                    <a href="/users">
+                    <a href="/users" class="{{ isset($sidebar) && $sidebar == 'users' ? 'mm-active' : '' }}">
                         <i class="metismenu-icon pe-7s-add-user"></i>
                         Users
                     </a>
                 </li>
                 <li>
-                    <a href="/submited">
+                    <a href="/submited" class="{{ isset($sidebar) && $sidebar == 'submit' ? 'mm-active' : '' }}">
                         <i class="metismenu-icon pe-7s-upload"></i>
                         ELLK Submitted
                     </a>
@@ -60,41 +60,18 @@
                 @endif
 
                 <li>
-                    <a href="/ellk">
+                    <a href="/ellk" class="{{ isset($sidebar) && $sidebar == 'ellk' ? 'mm-active' : '' }}">
                         <i class="metismenu-icon pe-7s-news-paper"></i>
                         ELLK
                     </a>
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="#" class="{{ isset($sidebar) && $sidebar == 'panduan' ? 'mm-active' : '' }}">
                         <i class="metismenu-icon pe-7s-info"></i>
                         Panduan
                     </a>
                 </li>
-
-                <!-- <li>
-                    <a href="#">
-                        <i class="metismenu-icon pe-7s-diamond"></i>
-                        Menu 2
-                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
-                    </a>
-                    <ul>
-                        <li>
-                            <a href="#">
-                                <i class="metismenu-icon"></i>
-                                Elements 1
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#l">
-                                <i class="metismenu-icon">
-                                </i>Elements 2
-                            </a>
-                        </li>
-
-                    </ul>
-                </li> -->
             </ul>
         </div>
     </div>

@@ -21,13 +21,15 @@ class ellkController extends Controller
 
     public function index()
     {
+        $sidebar = 'ellk';
+
         $id = Auth::user()->id;
         $lks = DB::table('lembar_kerjas')
         ->where('user_id', '=', $id)
         ->orderBy('created_at','desc')
         ->get();
 
-        return view('ellk', compact("lks"));
+        return view('ellk', compact(["lks","sidebar"]));
     }
 
     public function destroy($id)

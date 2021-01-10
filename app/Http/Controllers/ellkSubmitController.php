@@ -14,6 +14,7 @@ class ellkSubmitController extends Controller
 {
     public function index()
     {
+        $sidebar = "submit";
         $lks = DB::table('lembar_kerjas')
         ->join('users','users.id' ,'=',  'lembar_kerjas.user_id')
         ->orderBy('lembar_kerjas.created_at','desc')
@@ -30,7 +31,7 @@ class ellkSubmitController extends Controller
         )
         ->get();
 
-        return view('ellk-submitted', compact("lks"));
+        return view('ellk-submitted', compact(["lks","sidebar"]));
     }
 
     public function update($id,Request $request)
