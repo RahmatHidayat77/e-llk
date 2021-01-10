@@ -17,6 +17,8 @@ class ellkController extends Controller
         $this->middleware('auth');
     }
 
+
+
     public function index()
     {
         $id = Auth::user()->id;

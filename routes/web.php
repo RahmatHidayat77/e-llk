@@ -23,6 +23,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+
+Route::get('/submited', 'ellkSubmitController@index')->middleware('auth')->name('ellk-submitted');
+Route::post('/submited/update/{id}', 'ellkSubmitController@update')->middleware('auth');
+
 //ellk data
 Route::prefix('ellk')->group(function(){
     Route::get('/', 'ellkController@index')->middleware('auth')->name('ellk');

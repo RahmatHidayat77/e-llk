@@ -50,6 +50,12 @@
                         Users
                     </a>
                 </li>
+                <li>
+                    <a href="/submited">
+                        <i class="metismenu-icon pe-7s-upload"></i>
+                        ELLK Submitted
+                    </a>
+                </li>
                 @endif
 
                 <li>
