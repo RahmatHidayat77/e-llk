@@ -19,14 +19,61 @@ class ellkController extends Controller
 
     public function index()
     {
+        $id = Auth::user()->id;
         $lks = DB::table('lembar_kerjas')
+        ->where('user_id', '=', $id)
         ->orderBy('created_at','desc')
         ->get();
 
         return view('ellk', compact("lks"));
     }
 
-    public function create(Request $request)
+    public function destroy($id)
+    {
+        $lks = LembarKerja::where('id',$id)->delete();
+    
+        return response()->json(['status'=>'success']);
+    }
+
+    public function detail($id){
+        $detail = LembarKerja::find($id);
+
+        return response()->json($detail);
+    }
+
+    public function update($id,Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'from'   => 'required',
+            'to'   => 'required',
+            'kegiatan'  => 'required',
+            'jenis' => 'required',
+            'catatan' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['error' => $validator->errors()], 401);
+        }
+
+        if ($validator->fails()) {
+            return Redirect::to('ellk')
+            ->withErrors($validator);
+        } else {
+            // store
+            $lk = LembarKerja::find($id);
+            $lk->user_id  = Auth::user()->id;
+            $lk->jam      = $request->from." - ".$request->to;
+            $lk->jenis    = $request->jenis;
+            $lk->kegiatan = $request->kegiatan;
+            $lk->catatan  = $request->catatan;
+            $lk->verified = false;
+            $lk->save();
+
+            return response()->json(['status'=>'success']);
+        }
+    }
+
+    public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'from'   => 'required',
@@ -54,7 +101,7 @@ class ellkController extends Controller
             $lk->verified = false;
             $lk->save();
 
-            return Redirect::to('ellk')->with('success', 'Data berhasil disimpan!');
+            return response()->json(['status'=>'success']);
         }
     }
 }

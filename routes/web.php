@@ -18,13 +18,19 @@ Route::get('/', function () {
 });
 
 Route::get('/login', 'Auth\LoginController@index')->name('login');
-Route::get('/ellk', 'ellkController@index')->name('ellk');
-Route::post('/ellk/create', 'ellkController@create')->name('ellk.create');
-
 Route::get('/users', 'UserController@getAllUser')->name('users');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//ellk data
+Route::prefix('ellk')->group(function(){
+    Route::get('/', 'ellkController@index')->middleware('auth')->name('ellk');
+    Route::post('/add', 'ellkController@store')->middleware('auth')->name('ellk.add');
+    Route::get('/delete/{id}', 'ellkController@destroy')->middleware('auth');
+    Route::get('/detail/{id}','ellkController@detail')->middleware('auth');
+    Route::post('/update/{id}', 'ellkController@update')->middleware('auth');
+});
 
 //users data
 Route::prefix('users')->group(function(){

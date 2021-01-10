@@ -102,6 +102,7 @@
                     </td>
                 </tr>
             @endforeach
+        </tbody>
 
     </table>
 </div>
@@ -172,7 +173,7 @@
                     <input class="d-none" type="text" name="id" id="idData">
 
                     <div class="profil text-center">
-                        
+
                     </div>
 
                     <div class="form-group ">
@@ -181,9 +182,8 @@
                             <img id="photoUser" src="" alt="" sizes="" srcset="">
                             <div style="height : 10px;"></div>
                             <div class="custom-file text-left" id="input_file">
-                                <input type="file" class="custom-file-input"  name="file" id="btnfile"
-                                    onchange="readURL(this);" accept="image/*"
-                                    aria-describedby="inputGroupFileAddon01">
+                                <input type="file" class="custom-file-input" name="file" id="btnfile"
+                                    onchange="readURL(this);" accept="image/*" aria-describedby="inputGroupFileAddon01">
                                 <label class="custom-file-label" for="inputGroupFile01">Choose Image</label>
                             </div>
                         </div>
