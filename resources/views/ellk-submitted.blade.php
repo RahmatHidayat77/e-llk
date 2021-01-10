@@ -9,9 +9,9 @@
                 </i>
             </div>
             <div>VERIFIKASI ELLK 
-                <div class="page-title-subheading">This is an example dashboard created using
+                {{-- <div class="page-title-subheading">This is an example dashboard created using
                     build-in elements and components.
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>
@@ -26,7 +26,7 @@
     <div class="modal-dialog modal-sm ">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Tambah Lembar Kerja</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">Verifikasi Lembar Kerja</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

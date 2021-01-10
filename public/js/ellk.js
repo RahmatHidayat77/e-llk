@@ -108,7 +108,7 @@ $(function () {
     $("#data_activity").DataTable( {
         dom: 'Bfrtip',
         buttons: [
-            'copy', 'excel', 'pdf', 'print'
+            'excel', 'pdf', 'print'
         ]
     });
 

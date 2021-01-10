@@ -37,9 +37,9 @@
                 </i>
             </div>
             <div>Users
-                <div class="page-title-subheading">This is an example dashboard created using
+                {{-- <div class="page-title-subheading">This is an example dashboard created using
                     build-in elements and components.
-                </div>
+                </div> --}}
             </div>
         </div>
         <div class="page-title-actions">
@@ -168,7 +168,7 @@
                 </button>
             </div>
 
-            <form method="post" action="" class="kt-form" enctype="multipart/form-data" id="m_form_update">
+            <form method="put" action="" class="kt-form" enctype="multipart/form-data" id="m_form_update">
                 @csrf
                 <div class="modal-body">
 
