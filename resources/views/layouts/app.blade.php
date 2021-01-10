@@ -49,6 +49,18 @@
             border: 1px solid #babdba;
         }
 
+        .closed-sidebar .ell-title {
+            display: none;
+        }
+
+        .img-usr {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center;
+        }
+
     </style>
 
     <!--begin::Page Custom Styles(used by this page) -->

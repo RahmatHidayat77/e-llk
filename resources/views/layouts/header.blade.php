@@ -1,7 +1,9 @@
 <div class="app-header header-shadow">
     <div class="app-header__logo">
         {{-- <div class="logo-src"></div> --}}
-        <img src="{{ URL::to('assets/images/icon.jpeg')}} " alt="" class="responsive">
+        <img src="{{ URL::to('assets/images/icon.jpeg')}} " alt="" class="responsive" style="width: 40px;">
+
+        <span class="ell-title"><h3>ELLK</h3></span>
         <div class="header__pane ml-auto">
             <div>
                 <button type="button" class="hamburger close-sidebar-btn hamburger--elastic"

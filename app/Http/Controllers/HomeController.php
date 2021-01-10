@@ -35,6 +35,37 @@ class HomeController extends Controller
             ->where('jabatan', '=', 'sekretaris')
             ->count();
 
-        return view('home', compact(["totalPegawai","totalKasubag","totalSekre"]));
+         $lks = DB::table('lembar_kerjas')
+            ->join('users','users.id' ,'=',  'lembar_kerjas.user_id')
+            ->orderBy('lembar_kerjas.created_at','desc')
+            ->select('lembar_kerjas.id',
+            'users.name',
+            'users.nip',
+            'users.jabatan',
+            'users.foto',
+            'lembar_kerjas.jam',
+            'lembar_kerjas.jenis',
+            'lembar_kerjas.kegiatan',
+            'lembar_kerjas.verified',
+            'lembar_kerjas.created_at'
+            )
+            ->take(10)
+            ->get();
+
+            $lksCount= DB::table('lembar_kerjas')
+                        ->count();
+
+            $lksCountUnverified= DB::table('lembar_kerjas')
+                        ->where('verified', '=', 0 )
+                        ->count();
+
+             $lksCountVerified= DB::table('lembar_kerjas')
+                        ->where('verified', '=', 1 )
+                        ->count();
+
+            $getPercentProgress = ($lksCountVerified / $lksCount) * 100;
+
+        return view('home',
+        compact(["totalPegawai","totalKasubag","totalSekre","lks","lksCount","lksCountUnverified", "lksCountVerified","getPercentProgress"]));
     }
 }
