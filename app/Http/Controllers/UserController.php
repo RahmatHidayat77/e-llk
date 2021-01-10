@@ -67,7 +67,7 @@ class UserController extends Controller
                 $image = $request->file('file');
                 $filename = time() . '.' . $image->getClientOriginalExtension();
                 \Image::make($image)->save( public_path($path . $filename ) );
-                $user->foto = env('APP_URL') . '/uploads/users/' . $filename;
+                $user->foto = '/uploads/users/' . $filename;
             } else {
                 $user->foto = '';
             }
@@ -97,7 +97,7 @@ class UserController extends Controller
             $image = $request->file('file');
             $filename = time() . '.' . $image->getClientOriginalExtension();
             \Image::make($image)->save( public_path($path . $filename ) );
-            $user->foto = env('APP_URL') . '/uploads/users/' . $filename;
+            $user->foto = '/uploads/users/' . $filename;
         } else {
             // $user->foto = '';
         }
