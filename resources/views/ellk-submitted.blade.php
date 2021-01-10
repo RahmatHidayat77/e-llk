@@ -36,7 +36,7 @@
                 <div class="modal-body">
                     <input class="d-none" type="text" name="" id="idData">
                     <div class="position-relative form-group"><label class="">Verify</label>
-                        <select name="verify" id="verify"
+                        <select name="verified" id="verified"
                             class="form-control">
                             <option value="false">Belum Terverifikasi</option>
                             <option value="true">Sudah Terverifikasi</option>
