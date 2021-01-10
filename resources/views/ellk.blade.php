@@ -75,9 +75,9 @@
                             <option value="pendukung">Pendukung</option>
                         </select>
                     </div>
-                    <div class="position-relative form-group"><label class="">Keterangan</label>
+                    {{-- <div class="position-relative form-group"><label class="">Keterangan</label>
                         <input type="text" class="form-control" name="catatan">
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

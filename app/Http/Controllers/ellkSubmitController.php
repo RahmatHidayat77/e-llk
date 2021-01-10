@@ -24,6 +24,7 @@ class ellkSubmitController extends Controller
         'lembar_kerjas.jam',
         'lembar_kerjas.jenis',
         'lembar_kerjas.kegiatan',
+        'lembar_kerjas.catatan',
         'lembar_kerjas.verified',
         'lembar_kerjas.created_at'
         )
@@ -41,6 +42,7 @@ class ellkSubmitController extends Controller
                 $verified = true;
             }
             $lk->verified = $verified;
+            $lk->catatan = $request->catatan;
             $lk->save();
 
 

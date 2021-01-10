@@ -42,6 +42,9 @@
                             <option value="true">Sudah Terverifikasi</option>
                         </select>
                     </div>
+                    <div class="position-relative form-group"><label class="">Catatan</label>
+                        <textarea type="text" class="form-control" name="catatan" id="catatan"></textarea>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -70,6 +73,7 @@
                     <th class="b-t-0">Jam</th>
                     <th class="b-t-0">Kegiatan</th>
                     <th class="b-t-0">Jenis</th>
+                    <th class="b-t-0">Catatan</th>
                     <th class="b-t-0">Status</th>
                     <th class="b-t-0">Action</th>
                 </tr>
@@ -86,6 +90,7 @@
                         <td>{{ $item->jam }}</td>
                         <td>{{ $item->kegiatan }}</td>
                         <td>{{ $item->jenis }}</td>
+                        <td>{{ $item->catatan }}</td>
                         <td>
                             @if($item->verified == 0)
                                 <div class="badge badge-pill badge-secondary">Belum terverifikasi</div>
