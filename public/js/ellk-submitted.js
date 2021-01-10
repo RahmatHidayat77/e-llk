@@ -52,9 +52,12 @@ $(function () {
     $('body').on('click', '#m_update', function () {
         var id = $(this).attr('data-id');
         var verify = $(this).attr('data-verify');
+        var note = $(this).attr('data-catatan');
+        const verifyValue = verify == 0 ? 'false': 'true';
 
         $('#idData').val(id);
-        $('#verify').val(verify);
+        $('#verified').val(verifyValue);
+        $('#catatan').val(note);
     });
 
 });

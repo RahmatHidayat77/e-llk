@@ -100,7 +100,8 @@
                         </td>
                         <td>
                             <div role="group" class="btn-group-sm btn-group btn-group-toggle" data-toggle="buttons">
-                                <label class="btn btn-warning" data-id="{{ $item->id }}" data-verify="{{$item->verified}}" id="m_update"
+                                <label class="btn btn-warning" data-id="{{ $item->id }}" 
+                                data-verify="{{$item->verified}}" id="m_update" data-catatan="{{$item->catatan}}"
                                     data-toggle="modal" data-target="#modalSee">
                                     <span class="btn-icon-wrapper pr-2 opacity-7">
                                         <i class="fa fa-edit fa-w-20"></i>

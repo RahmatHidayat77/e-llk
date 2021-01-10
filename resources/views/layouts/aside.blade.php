@@ -51,12 +51,6 @@
                         Users
                     </a>
                 </li>
-                <li>
-                    <a href="/submited" class="{{ isset($sidebar) && $sidebar == 'submit' ? 'mm-active' : '' }}">
-                        <i class="metismenu-icon pe-7s-upload"></i>
-                        ELLK Submitted
-                    </a>
-                </li>
                 @endif
 
                 <li>
@@ -68,7 +62,7 @@
 
                 @if (Auth::user()->jabatan != 'pegawai')
                 <li>
-                    <a href="/submited">
+                    <a href="/submited" class="{{ isset($sidebar) && $sidebar == 'submit' ? 'mm-active' : '' }}">
                         <i class="metismenu-icon pe-7s-upload"></i>
                         VERIFIKASI ELLK
                     </a>
