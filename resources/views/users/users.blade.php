@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Users')
+
 @section('page_styles')
 <style type="text/css">
     .b-t-0 {

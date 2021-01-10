@@ -58,9 +58,9 @@
                                             Keep me logged in
                                         </label></div>
                                     <div class="divider"></div>
-                                    <h6 class="mb-0">
+                                    {{-- <h6 class="mb-0">
                                         No account?
-                                        <a href="{{ route('register') }}" class="text-primary">Sign up now</a></h6>
+                                        <a href="{{ route('register') }}" class="text-primary">Sign up now</a></h6> --}}
                                 </div>
                                 <div class="modal-footer clearfix">
                                     <div  class="float-right"><button type="submit"  type="button" class="btn btn-primary btn-lg">Login

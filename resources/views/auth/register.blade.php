@@ -14,7 +14,8 @@
                                 <div class="modal-body">
                                     <h5 class="modal-title">
                                         <h4 class="mt-2">
-                                            <div>Selamat datang,</div><span>Isikan <span class="text-success">form dibawah
+                                            {{-- <div>Selamat datang,</div> --}}
+                                            <span>Isikan <span class="text-success">form dibawah
                                                     </span> untuk membuat akun</span>
                                         </h4>
                                     </h5>
@@ -85,9 +86,9 @@
                                             </div>
                                         </div>
                                         <div class="divider"></div>
-                                        <h6 class="mb-0">
+                                        {{-- <h6 class="mb-0">
                                             Sudah memiliki akun ?
-                                            <a href="{{ route('login') }}" class="text-primary">Masuk</a></h6>
+                                            <a href="{{ route('login') }}" class="text-primary">Masuk</a></h6> --}}
                                     </div>
                                     <div class="modal-footer d-block text-center"><button color="primary" type="submit"
                                             type="button"

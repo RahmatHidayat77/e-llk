@@ -43,7 +43,7 @@
                     </a>
                 </li>
 
-                @if (Auth::user()->jabatan == 'sekretaris')
+                @if (Auth::user()->jabatan == 'kasubag')
                 <li>
                     <a href="/users">
                         <i class="metismenu-icon pe-7s-add-user"></i>

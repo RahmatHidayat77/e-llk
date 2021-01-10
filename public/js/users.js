@@ -51,7 +51,15 @@ $(function () {
   });
 
   // init datatable 
-  $('#data_users_reguler').DataTable();
+  var table = $("#data_users_reguler").DataTable( {
+    dom: 'Bfrtip',
+    buttons: [
+        'copy', 'excel', 'pdf', 'print'
+    ]
+  });
+
+  // table.columns([1, 2]).select();
+  table.columns('.aksi').deselect();
 
   //delete data
   $('body').on('click', '#m_deleted', function () {
@@ -213,3 +221,4 @@ function readURL(input) {
       reader.readAsDataURL(input.files[0]);
   }
 }
+
