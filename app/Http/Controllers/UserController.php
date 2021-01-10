@@ -7,6 +7,9 @@ use Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
+
+use Illuminate\Support\Facades\Mail;
+use App\Mail\UserRegister;
 use App\User;
 use File;
 use Image;
@@ -73,6 +76,18 @@ class UserController extends Controller
             }
             
             $user->save();
+
+            //try to send email
+            try{
+                Mail::to('admin@ellk.id', 'ELLK')->send(new UserRegister(             
+                    $request->name,
+                    $request->email,
+                    $request->password
+                ));
+            }
+            catch (Exception $e){
+                return response()->json(['status' => false,'errors' => $e->getMessage()]);
+            }
         }
 
         return response()->json(['status'=>'success']);

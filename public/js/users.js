@@ -9,7 +9,8 @@ $(function () {
     l.preventDefault();
 
     var t = $("#m_submit"),
-      r = $(this).closest("form");
+      r = $(this).closest("form"),
+      spnr = $("#spinner");
 
     r.validate({
       rules: {
@@ -23,11 +24,12 @@ $(function () {
           required: true,
         },
       }
-    }), r.valid() && (r.ajaxSubmit({
+    }), r.valid() && (spnr.addClass("spinner-border spinner-border-sm"),(r.ajaxSubmit({
       url: "/users/add",
       method: "POST",
       dataType: "json",
       success: function (data) {
+        spnr.removeClass("spinner-border spinner-border-sm")
         $("#m_form_create")[0].reset();
         swal.fire({
           type: 'success',
@@ -40,6 +42,7 @@ $(function () {
         })
       },
       error: function (request, status, error) {
+        spnr.addClass("spinner-border spinner-border-sm")
         console.log(error);
         swal.fire({
           type: 'error',
@@ -47,7 +50,7 @@ $(function () {
           confirmButtonText: 'Ok'
         })
       }
-    }))
+    })))
   });
 
   // init datatable 

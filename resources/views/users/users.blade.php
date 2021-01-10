@@ -149,7 +149,10 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary" id="m_submit">Save Data</button>
+                    <button type="submit" class="btn btn-primary" id="m_submit">
+                        <span class="" id="spinner"></span>
+                        Save Data
+                    </button>
                 </div>
 
             </form>
