@@ -66,6 +66,15 @@
                     </a>
                 </li>
 
+                @if (Auth::user()->jabatan != 'pegawai')
+                <li>
+                    <a href="/submited">
+                        <i class="metismenu-icon pe-7s-upload"></i>
+                        VERIFIKASI ELLK
+                    </a>
+                </li>
+                @endif
+
                 <li>
                     <a href="#" class="{{ isset($sidebar) && $sidebar == 'panduan' ? 'mm-active' : '' }}">
                         <i class="metismenu-icon pe-7s-info"></i>

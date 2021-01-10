@@ -113,6 +113,9 @@
                     <div class="position-relative form-group"><label class="">Jabatan</label>
                         <input placeholder="{{ Auth::user()->jabatan }}" type="text" class="form-control" disabled>
                     </div>
+                    <div class="position-relative form-group"><label class="">Tanggal</label>
+                        <input placeholder="{{ date('d-m-Y', strtotime(Auth::user()->created_at)) }}" type="text" class="form-control" disabled>
+                    </div>
                     <div class="position-relative"><label>Jam</label></div>
                     <div class="form-group row">
                         <div class="col"> <input class="form-control" type="time" data-inputmask="'alias': 'time'"
@@ -130,9 +133,9 @@
                             <option value="pendukung">Pendukung</option>
                         </select>
                     </div>
-                    <div class="position-relative form-group"><label class="">Keterangan</label>
+                    {{-- <div class="position-relative form-group"><label class="">Keterangan</label>
                         <input type="text" class="form-control" name="catatan" id="catatan">
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

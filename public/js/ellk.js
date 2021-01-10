@@ -24,10 +24,7 @@ $(function () {
                 },
                 kegiatan: {
                     required: true,
-                },
-                catatan: {
-                    required: true,
-                },
+                }
             }
         }), r.valid() && (r.ajaxSubmit({
             url: "/ellk/add",
@@ -78,10 +75,7 @@ $(function () {
                 },
                 kegiatan: {
                     required: true,
-                },
-                catatan: {
-                    required: true,
-                },
+                }
             }
         }), r.valid() && (r.ajaxSubmit({
             url: "/ellk/update/" + id,

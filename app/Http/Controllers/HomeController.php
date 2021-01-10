@@ -65,7 +65,7 @@ class HomeController extends Controller
                         ->where('verified', '=', 1 )
                         ->count();
 
-            $getPercentProgress = ($lksCountVerified / $lksCount) * 100;
+            $getPercentProgress = round(($lksCountVerified / $lksCount) * 100);
 
         return view('home',
         compact(["totalPegawai","totalKasubag","totalSekre","lks", "sidebar", 

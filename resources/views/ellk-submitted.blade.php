@@ -8,7 +8,7 @@
                 <i class="pe-7s-upload icon-gradient bg-mean-fruit">
                 </i>
             </div>
-            <div>ELLK SUBMITTED
+            <div>VERIFIKASI ELLK 
                 <div class="page-title-subheading">This is an example dashboard created using
                     build-in elements and components.
                 </div>

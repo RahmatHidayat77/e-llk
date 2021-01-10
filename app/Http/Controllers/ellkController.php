@@ -51,8 +51,7 @@ class ellkController extends Controller
             'from'   => 'required',
             'to'   => 'required',
             'kegiatan'  => 'required',
-            'jenis' => 'required',
-            'catatan' => 'required',
+            'jenis' => 'required'
         ]);
 
         if ($validator->fails()) {
@@ -69,7 +68,6 @@ class ellkController extends Controller
             $lk->jam      = $request->from." - ".$request->to;
             $lk->jenis    = $request->jenis;
             $lk->kegiatan = $request->kegiatan;
-            $lk->catatan  = $request->catatan;
             $lk->verified = false;
             $lk->save();
 
@@ -83,8 +81,7 @@ class ellkController extends Controller
             'from'   => 'required',
             'to'   => 'required',
             'kegiatan'  => 'required',
-            'jenis' => 'required',
-            'catatan' => 'required',
+            'jenis' => 'required'
         ]);
 
         if ($validator->fails()) {
@@ -101,7 +98,7 @@ class ellkController extends Controller
             $lk->jam      = $request->from." - ".$request->to;
             $lk->jenis    = $request->jenis;
             $lk->kegiatan = $request->kegiatan;
-            $lk->catatan  = $request->catatan;
+            $lk->catatan  = "-";
             $lk->verified = false;
             $lk->save();
 
