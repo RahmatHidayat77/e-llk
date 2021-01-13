@@ -22,6 +22,7 @@ Route::get('/users', 'UserController@getAllUser')->name('users');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/panduan', 'panduanController@index')->name('panduan');
 
 
 Route::get('/submited', 'ellkSubmitController@index')->middleware('auth')->name('ellk-submitted');

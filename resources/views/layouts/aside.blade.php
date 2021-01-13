@@ -70,7 +70,7 @@
                 @endif
 
                 <li>
-                    <a href="#" class="{{ isset($sidebar) && $sidebar == 'panduan' ? 'mm-active' : '' }}">
+                    <a href="/panduan" class="{{ isset($sidebar) && $sidebar == 'panduan' ? 'mm-active' : '' }}">
                         <i class="metismenu-icon pe-7s-info"></i>
                         Panduan
                     </a>
