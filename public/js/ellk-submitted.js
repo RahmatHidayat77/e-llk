@@ -10,7 +10,7 @@ $(function () {
 
         var t = $("#m_submit"),
             r = $(this).closest("form");
-            id = $("#idData").val();
+        id = $("#idData").val();
 
         r.validate({
             rules: {
@@ -23,7 +23,7 @@ $(function () {
             method: "POST",
             dataType: "json",
             success: function (data) {
-                
+
                 swal.fire({
                     type: 'success',
                     title: 'Your Data has been updated',
@@ -46,14 +46,37 @@ $(function () {
     });
 
     // init datatable 
-    $('#data_activity').DataTable();
+    $('#data_activity').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            {
+                extend: 'excelHtml5',
+                exportOptions: {
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+                }
+            },
+            {
+                extend: 'pdfHtml5',
+                exportOptions: {
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+                }
+            },
+            {
+                extend: 'print',
+                exportOptions: {
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+                }
+            },
+
+        ]
+    });
 
     //data update details
     $('body').on('click', '#m_update', function () {
         var id = $(this).attr('data-id');
         var verify = $(this).attr('data-verify');
         var note = $(this).attr('data-catatan');
-        const verifyValue = verify == 0 ? 'false': 'true';
+        const verifyValue = verify == 0 ? 'false' : 'true';
 
         $('#idData').val(id);
         $('#verified').val(verifyValue);

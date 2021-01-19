@@ -54,12 +54,30 @@ $(function () {
   });
 
   // init datatable 
-  var table = $("#data_users_reguler").DataTable( {
+  $('#data_users_reguler').DataTable( {
     dom: 'Bfrtip',
     buttons: [
-        'excel', 'pdf', 'print'
+        {
+            extend: 'excelHtml5',
+            exportOptions: {
+              columns: [ 0, 1, 2, 3, 4 ]
+            }
+        },
+        {
+            extend: 'pdfHtml5',
+            exportOptions: {
+              columns: [ 0, 1, 2, 3, 4 ]
+            }
+        },
+        {
+          extend: 'print',
+          exportOptions: {
+              columns: [ 0, 1, 2, 3, 4 ]
+          }
+      },
+
     ]
-  });
+} );
 
   // table.columns([1, 2]).select();
   // table.columns('.aksi').deselect();
