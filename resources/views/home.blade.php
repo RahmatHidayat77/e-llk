@@ -99,6 +99,7 @@
             </div>
         </div>
 
+        @if (Auth::user()->jabatan == 'kasubag')
         <div class="main-card mb-3 card">
             <div class="card-header">Activity Users
             </div>
@@ -148,7 +149,7 @@
                 </table>
             </div>
         </div>
-
+        @endif
         
     </div>
 </div>

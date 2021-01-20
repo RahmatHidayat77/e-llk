@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 
@@ -55,6 +56,8 @@ class HomeController extends Controller
             ->get();
 
             $lksCount= DB::table('lembar_kerjas')
+                        ->join('users','users.id' ,'=',  'lembar_kerjas.user_id')
+                        ->where('lembar_kerjas.user_id' , '=', Auth::user()->id)
                         ->count();
 
             $lksCountUnverified= DB::table('lembar_kerjas')
@@ -62,10 +65,15 @@ class HomeController extends Controller
                         ->count();
 
              $lksCountVerified= DB::table('lembar_kerjas')
+                        ->join('users','users.id' ,'=',  'lembar_kerjas.user_id')
                         ->where('verified', '=', 1 )
+                        ->where('lembar_kerjas.user_id' , '=', Auth::user()->id)
                         ->count();
 
-            $getPercentProgress = round(($lksCountVerified / $lksCount) * 100);
+            $getPercentProgress = 0;
+            if ($lksCount != 0 ) {
+                $getPercentProgress = round(($lksCountVerified / $lksCount) * 100);
+            }
 
         return view('home',
         compact(["totalPegawai","totalKasubag","totalSekre","lks", "sidebar", 
