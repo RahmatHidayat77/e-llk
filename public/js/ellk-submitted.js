@@ -63,8 +63,12 @@ $(function () {
             },
             {
                 extend: 'print',
+                title: ' ',
                 exportOptions: {
                     columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+                },
+                customize: function (win) {
+                    $(win.document.body).prepend('<img src="https://dwi.web.id/head-table.png" style="position:relative;margin-left:auto;margin-right:auto;margin-bottom:30px;" />');
                 }
             },
 

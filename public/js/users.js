@@ -67,12 +67,16 @@ $(function () {
             extend: 'pdfHtml5',
             exportOptions: {
               columns: [ 0, 1, 2, 3, 4 ]
-            }
+            },
         },
         {
           extend: 'print',
+          title: ' ',
           exportOptions: {
               columns: [ 0, 1, 2, 3, 4 ]
+          },
+          customize: function(win) {
+            $(win.document.body).prepend('<img src="https://dwi.web.id/head-table.png" style="position:relative;margin-left:auto;margin-right:auto;margin-bottom:30px;" />');
           }
       },
 
