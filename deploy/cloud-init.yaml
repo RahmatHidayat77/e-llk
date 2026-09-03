@@ -1,0 +1,35 @@
+#cloud-config
+# ---------------------------------------------------------------------
+# BytePlus ECS user-data for the e-LLK host.
+# Installs Docker + Compose plugin and clones the repo.
+# Paste this into the "User Data" / "Custom Data" field when creating
+# the instance (or run the equivalent commands by hand after SSH).
+# ---------------------------------------------------------------------
+package_update: true
+package_upgrade: false
+
+packages:
+  - ca-certificates
+  - curl
+  - git
+  - ufw
+
+runcmd:
+  # --- Docker Engine + compose plugin (official convenience script) ---
+  - curl -fsSL https://get.docker.com | sh
+  - systemctl enable --now docker
+  - usermod -aG docker "$(id -un 1000 2>/dev/null || echo root)"
+
+  # --- Basic firewall: SSH + HTTP(S) only ---
+  - ufw allow OpenSSH
+  - ufw allow 80/tcp
+  - ufw allow 443/tcp
+  - ufw --force enable
+
+  # --- App checkout ---
+  - mkdir -p /opt/e-llk
+  - git clone https://github.com/RahmatHidayat77/e-llk.git /opt/e-llk
+  - cp /opt/e-llk/.env.docker /opt/e-llk/.env
+
+  # NOTE: edit /opt/e-llk/.env (passwords, APP_URL), then:
+  #   cd /opt/e-llk && docker compose up -d --build

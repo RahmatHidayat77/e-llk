@@ -7,6 +7,17 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
+## Deployment
+
+This app ships with a Docker Compose stack (nginx + PHP-FPM + MySQL 8).
+See **[DEPLOYMENT.md](DEPLOYMENT.md)** for the full guide. Quick start on a server:
+
+```bash
+git clone https://github.com/RahmatHidayat77/e-llk.git && cd e-llk
+cp .env.docker .env    # edit DB passwords + APP_URL
+docker compose up -d --build
+```
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
